@@ -1,5 +1,6 @@
 @import "_reset";
 @import "_variables.scss";
+@import "_buttons.scss";
 
 a {
   text-decoration: none;
@@ -10,33 +11,37 @@ a {
 button {
   background-color: transparent;
   color: $textcolor;
-  border: 1px solid $textcolor
+  border: 1px solid $textcolor;
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  position: relative;
   background: $bgcolor;
   color: $textcolor;
+  width: 100vw;
+  height: 100%;
 }
 
-
 header {
-  position: fixed;
+  position: relative;
   z-index: 1;
   top: 0;
-  left: 0;
   right: 0;
   background: $bgcolor;
-  img{
+  width: 100%;
+  img {
     width: 20%;
   }
   .header-nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: $pagemargin;
+    padding: $hpad;
     color: $textcolor;
-    font-size: 10px;
+    font-size: 18px;
+    font-style: italic;
     .header-nav__left {
       span {
         margin-right: 40px;
@@ -47,19 +52,18 @@ header {
       }
     }
     .header-nav__right {
-      span, i {
+      span,
+      i {
         margin-left: 40px;
       }
     }
   }
 }
 
-
 main {
   display: flex;
   flex-direction: column;
-  margin: $pagemargin;
-  padding-top: 100px;
+  padding: $hpad;
   text-align: center;
   gap: 50px;
 
@@ -68,29 +72,32 @@ main {
     justify-content: center;
     align-items: center;
     color: #ffffff;
-    margin-top: 30px;
-    
     img {
-      width: 100%;
+      width: 1000px;
+      height: 600px;
       position: relative;
     }
     .introduce {
       position: absolute;
       width: 40%;
-      
+
       span {
-      font-size: 20px;
+        font-size: 20px;
       }
       p {
-        margin: 20px; 
+        margin: 20px;
         font-size: 50px;
         font-weight: 500;
       }
+      button {
+        @extend %button;
+      }
     }
-  } 
+  }
   .second {
     display: flex;
-    width: 100%;
+    width: 80%;
+    margin: 0 auto;
     justify-content: center;
     align-items: center;
     img {
@@ -106,54 +113,58 @@ main {
       font-size: 15px;
       font-weight: 200;
       line-height: 1.3;
-
     }
     a {
       padding: 10px 10px;
       margin: 20px 100px;
       border: 1px solid $textcolor;
-      
     }
   }
   .third {
+    width: 80%;
+    margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(2,1fr) ;
+    grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     justify-content: center;
     align-items: center;
-    img{
-      width:100%;
+    img {
+      justify-self: center;
+      width: 70%;
     }
     .third-text {
-        margin: 0px 60px;
-        font-weight: 200;
-        line-height: 1.3;
-      }
-        
-      p {
-        margin-bottom: 20px;  
-        font-size: 15px;
-      } 
+      margin: 0px 60px;
+      font-weight: 200;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 20px;
+      font-size: 15px;
+    }
   }
   .grid {
+    width: 80%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    .grid_img{
-      img{
+    .grid_img {
+      img {
         object-fit: contain;
         max-width: 100%;
         height: 100%;
-        
       }
     }
-    
-    
+    .grid_img:nth-child(7) {
+      img {
+        object-fit: cover;
+      }
+    }
   }
 }
 
-footer{
-  
+footer {
   width: 100%;
   background-color: $purple;
   bottom: 0;
@@ -162,10 +173,10 @@ footer{
   white-space: nowrap;
   letter-spacing: 2.2px;
   padding: 65px 0px;
-    
+
   .footer-nav {
     display: flex;
-    
+
     justify-content: space-around;
     align-items: center;
     .footer-nav__list {
@@ -174,19 +185,18 @@ footer{
     .footer-nav__inside {
       display: flex;
       flex-direction: column;
-      h6 { 
+      h6 {
         color: #9d9d9c;
         margin-bottom: 30px;
       }
       span {
         margin-bottom: 10px;
       }
-      
     }
     .footer-nav__list:nth-child(2) {
       padding: 0px 10px;
-      border-right : 1px solid rgba(0,0,0,1) ;
-      border-left : 1px solid rgba(0,0,0,1) ;
+      border-right: 1px solid rgba(0, 0, 0, 1);
+      border-left: 1px solid rgba(0, 0, 0, 1);
     }
   }
 }
