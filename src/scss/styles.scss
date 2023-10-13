@@ -2,12 +2,6 @@
 @import "_variables.scss";
 @import "_buttons.scss";
 
-a {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
 button {
   background-color: transparent;
   color: $textcolor;
@@ -22,19 +16,16 @@ body {
   color: $textcolor;
   width: 100vw;
   height: 100%;
+  overflow-x: hidden;
 }
 
 header {
-  position: relative;
-  z-index: 1;
-  top: 0;
-  right: 0;
-  background: $bgcolor;
   width: 100%;
-  img {
-    width: 20%;
-  }
   .header-nav {
+    background: $bgcolor;
+    position: relative;
+    z-index: 99;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,19 +33,77 @@ header {
     color: $textcolor;
     font-size: 18px;
     font-style: italic;
-    .header-nav__left {
-      span {
-        margin-right: 40px;
+    text-transform: uppercase;
+
+    .header-nav__items {
+      width: 80%;
+      ul {
+        display: flex;
+        &:hover {
+          .item__contents {
+            display: block;
+          }
+        }
+        li {
+          .item__title {
+            width: 180px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+          }
+          .item__contents {
+            display: none;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 100px;
+
+            .contents {
+              position: relative;
+              display: flex;
+              justify-content: center;
+              ul {
+                width: 100%;
+                height: 200px;
+                background-color: rgb(19, 0, 54);
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                li {
+                  width: 200px;
+                  h4 {
+                    padding: 20px 0;
+                  }
+                  div {
+                    display: flex;
+                    flex-direction: column;
+                  }
+                  &:nth-child(4) {
+                    margin-left: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    .logo {
+      width: 20%;
+      a {
+        img {
+          width: 50%;
+        }
+      }
+    }
+
+    .header-nav__items,
+    .user {
+      a {
         &:hover {
           transition: ease-in-out 0.2s;
           opacity: 0.4;
         }
-      }
-    }
-    .header-nav__right {
-      span,
-      i {
-        margin-left: 40px;
       }
     }
   }
@@ -63,7 +112,7 @@ header {
 main {
   display: flex;
   flex-direction: column;
-  padding: $hpad;
+  padding-bottom: 50px;
   text-align: center;
   gap: 50px;
 
@@ -73,8 +122,8 @@ main {
     align-items: center;
     color: #ffffff;
     img {
-      width: 1000px;
-      height: 600px;
+      width: 100%;
+      height: 700px;
       position: relative;
     }
     .introduce {
